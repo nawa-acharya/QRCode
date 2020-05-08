@@ -1,8 +1,12 @@
 package com.marathon.domain;
 
+import java.util.Date;
+
 public class QRModel {
     private Long id;
     private String filePath;
+    private Date issueDate;
+    private Date expirationDate;
     private Car car;
 
     //constructor
@@ -24,6 +28,22 @@ public class QRModel {
 
     public void setFilePath(String filePath) {
         this.filePath = filePath;
+    }
+
+    public Date getIssueDate() {
+        return issueDate;
+    }
+
+    public void setIssueDate(Date issueDate) {
+        this.issueDate = issueDate;
+    }
+
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
     }
 
     public Car getCar() {

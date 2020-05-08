@@ -10,6 +10,8 @@ import com.marathon.domain.QRModel;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 
 public class QREncoder {
     private static final int QR_HEIGHT = 100;
@@ -23,6 +25,13 @@ public class QREncoder {
             QRModel qrModel = new QRModel();
             qrModel.setId(111L);
             qrModel.setCar(car);
+            if (qrModel.getIssueDate() == null) {
+                qrModel.setIssueDate(new Date());
+
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.MONTH, 6);
+                qrModel.setExpirationDate(calendar.getTime());
+            }
             qrModel.setFilePath(filePath);
             //dao.save(qrModel)
 
